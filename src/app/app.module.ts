@@ -13,6 +13,7 @@ import { SalaComponent } from './sala/sala.component';
 import { RegistropedidosComponent } from './registropedidos/registropedidos.component';
 import { RegistrocombosComponent } from './registrocombos/registrocombos.component';
 import {RippleModule} from "primeng/ripple";
+import { RegistroComponent } from './registro/registro.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {RippleModule} from "primeng/ripple";
     InventarioComponent,
     SalaComponent,
     RegistropedidosComponent,
-    RegistrocombosComponent
+    RegistrocombosComponent,
+    RegistroComponent
   ],
     imports: [
         BrowserModule,

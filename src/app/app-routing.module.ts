@@ -5,6 +5,7 @@ import {InventarioComponent} from "./inventario/inventario.component";
 import {SalaComponent} from "./sala/sala.component";
 import {RegistrocombosComponent} from "./registrocombos/registrocombos.component";
 import {RegistropedidosComponent} from "./registropedidos/registropedidos.component";
+import {RegistroComponent} from "./registro/registro.component";
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path: 'sala', component: SalaComponent},
   {path: 'registrocombos', component: RegistrocombosComponent},
   {path: 'registropedidos', component: RegistropedidosComponent},
+  {path: 'registro', component: RegistroComponent},
   {path: '**', redirectTo: '/login'},
 ];
 
