@@ -11,11 +11,11 @@ import {RegistroComponent} from './registro/registro.component';
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {
-    path: 'dashboard',
+    path: '',
     component: LayoutComponent,
     children: [
       {
-        path: '',
+        path: 'dashboard',
         loadChildren: () =>
           import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
       },
