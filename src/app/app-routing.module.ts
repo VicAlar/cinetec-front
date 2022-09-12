@@ -16,6 +16,12 @@ const routes: Routes = [
       },
     ],
   },
+  {path: 'inventario', component: InventarioComponent},
+  {path: 'sala', component: SalaComponent},
+  {path: 'registrocombos', component: RegistrocombosComponent},
+  {path: 'registropedidos', component: RegistropedidosComponent},
+  {path: 'registro', component: RegistroComponent},
+  {path: '**', redirectTo: '/login'},
 ];
 
 @NgModule({

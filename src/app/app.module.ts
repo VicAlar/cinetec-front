@@ -1,9 +1,18 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-
-import {AppRoutingModule} from './app-routing.module';
-import {AppComponent} from './app.component';
-import {LoginComponent} from './login/login.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { InventarioComponent } from './inventario/inventario.component';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {TableModule} from 'primeng/table';
+import {ButtonModule} from 'primeng/button';
+import { SalaComponent } from './sala/sala.component';
+import { RegistropedidosComponent } from './registropedidos/registropedidos.component';
+import { RegistrocombosComponent } from './registrocombos/registrocombos.component';
+import {RippleModule} from "primeng/ripple";
+import { RegistroComponent } from './registro/registro.component';
 import {HeaderComponent} from './components/header/header.component';
 import {LayoutComponent} from './layout/layout.component';
 import {BarsComponent} from '../assets/svg/bars/bars.component';
@@ -22,6 +31,12 @@ import {VentaSnacksSvgComponent} from '../assets/svg/ventaSnacks/ventaSnacks.com
   declarations: [
     AppComponent,
     LoginComponent,
+    DashboardComponent,
+    InventarioComponent,
+    SalaComponent,
+    RegistropedidosComponent,
+    RegistrocombosComponent,
+    RegistroComponent,
     HeaderComponent,
     LayoutComponent,
     BarsComponent,
@@ -36,7 +51,14 @@ import {VentaSnacksSvgComponent} from '../assets/svg/ventaSnacks/ventaSnacks.com
     ComboSvgComponent,
     VentaSnacksSvgComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        TableModule,
+        ButtonModule,
+        RippleModule
+    ],
   providers: [],
   bootstrap: [AppComponent],
 })
