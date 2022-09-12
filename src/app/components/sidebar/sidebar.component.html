@@ -1,0 +1,16 @@
+<div class="fixed height w-76 p-custom bg-white top-28 left-8 rounded-xl drop-shadow-md z-50 overflow-y-scroll">
+  <ul class="list-none m-0 p-0">
+    <li class="text-xs" *ngFor="let ruta of routes">
+      <div class="uppercase font-bold my-3 mx-0">{{ruta.name}}</div>
+      <ul>
+        <li *ngFor="let item of ruta.items">
+          <a class="text-gris-claro py-3 px-4 flex items-center" [routerLink]="item.routerLink">
+            <div class="w-6 h-6">
+              <ng-component *ngComponentOutlet="item.icon"></ng-component>
+            </div>
+            <span class="font-bold ml-3 text-sm">{{item.label}}</span></a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
