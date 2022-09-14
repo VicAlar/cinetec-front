@@ -7,9 +7,9 @@ import {InventarioComponent} from './inventario/inventario.component';
 import {RegistrocombosComponent} from './registrocombos/registrocombos.component';
 import {RegistropedidosComponent} from './registropedidos/registropedidos.component';
 import {RegistroComponent} from './registro/registro.component';
+import {AuthGuard} from "./providers/auth.guard";
 
 const routes: Routes = [
-  {path: 'login', component: LoginComponent},
   {
     path: '',
     component: LayoutComponent,
@@ -18,15 +18,18 @@ const routes: Routes = [
         path: 'dashboard',
         loadChildren: () =>
           import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+        canActivate: [AuthGuard],
       },
     ],
+
   },
   {path: 'inventario', component: InventarioComponent},
   {path: 'sala', component: SalaComponent},
   {path: 'registrocombos', component: RegistrocombosComponent},
   {path: 'registropedidos', component: RegistropedidosComponent},
   {path: 'registro', component: RegistroComponent},
-  {path: '**', redirectTo: '/login'},
+  {path: 'login', component: LoginComponent},
+  {path: '**', redirectTo: 'login'}
 ];
 
 @NgModule({

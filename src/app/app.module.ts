@@ -3,7 +3,6 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {LoginComponent} from './login/login.component';
-import {DashboardComponent} from './dashboard/dashboard.component';
 import {InventarioComponent} from './inventario/inventario.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TableModule} from 'primeng/table';
@@ -26,6 +25,9 @@ import {SalaSvgComponent} from '../assets/svg/salas/sala.component';
 import {InventarioSvgComponent} from '../assets/svg/inventario/inventario.component';
 import {ComboSvgComponent} from '../assets/svg/combos/combo.component';
 import {VentaSnacksSvgComponent} from '../assets/svg/ventaSnacks/ventaSnacks.component';
+import {ApiService} from "./providers/api.service";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -57,8 +59,13 @@ import {VentaSnacksSvgComponent} from '../assets/svg/ventaSnacks/ventaSnacks.com
     TableModule,
     ButtonModule,
     RippleModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    ApiService
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {

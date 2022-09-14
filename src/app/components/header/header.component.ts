@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {ApiService} from "../../providers/api.service";
 
 @Component({
   selector: 'app-header',
@@ -6,11 +7,14 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  path = 'assets/img/Cinetec.jpg';
+  usuario: any;
 
-  constructor() {
+  constructor(private api: ApiService) {
   }
 
   ngOnInit(): void {
+    this.api.getUser().subscribe((data: any) => {
+      this.usuario = data
+    })
   }
 }
