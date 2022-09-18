@@ -47,3 +47,23 @@ body {
     width: 100%;
   }
 }
+
+.menu {
+  @apply w-76 bg-white fixed p-6 xl:p-custom xl:top-28 xl:left-8 xl:rounded-xl drop-shadow-md z-50 overflow-y-scroll
+}
+
+.menu-lista {
+  @apply list-none m-0 p-0
+}
+
+.ocultar {
+  @apply transition-all duration-300 ease-in-out -translate-x-96
+}
+
+.ajustar {
+  @apply -ml-8 transition-all duration-300 ease-in-out
+}
+
+.active {
+  @apply border border-blue-500 rounded-3xl text-sky-700
+}

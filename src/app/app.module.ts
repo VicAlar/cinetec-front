@@ -28,6 +28,8 @@ import {VentaSnacksSvgComponent} from '../assets/svg/ventaSnacks/ventaSnacks.com
 import {ApiService} from "./providers/api.service";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import {SidebarModule} from "primeng/sidebar";
+import {SidebarService} from "./providers/sidebar.service";
 
 @NgModule({
   declarations: [
@@ -61,10 +63,12 @@ import {HttpClientModule} from "@angular/common/http";
     RippleModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SidebarModule,
   ],
   providers: [
-    ApiService
+    ApiService,
+    SidebarService
   ],
   bootstrap: [AppComponent],
 })
