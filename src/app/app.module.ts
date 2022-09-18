@@ -63,7 +63,6 @@ import {SidebarService} from "./providers/sidebar.service";
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    SidebarModule,
   ],
   providers: [
     ApiService,
