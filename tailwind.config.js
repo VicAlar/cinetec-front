@@ -15,6 +15,8 @@ module.exports = {
         76: "300px",
         custom: ".5rem 1.5rem",
         main: "7rem 2rem 2rem 4rem",
+        "95": "95%",
+        "centrado": "calc(50% - 2rem)",
       },
       backgroundImage: {
         logo: "url('assets/img/logo.png')",

@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../../providers/api.service";
+import {SidebarService} from "../../providers/sidebar.service";
 
 @Component({
   selector: 'app-header',
@@ -9,8 +10,7 @@ import {ApiService} from "../../providers/api.service";
 export class HeaderComponent implements OnInit {
   usuario: any;
 
-  constructor(private api: ApiService) {
-  }
+  constructor(private api: ApiService, public  sidebarService: SidebarService) {}
 
   ngOnInit(): void {
     this.api.getUser().subscribe((data: any) => {
