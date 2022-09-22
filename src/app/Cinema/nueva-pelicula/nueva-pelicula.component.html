@@ -1,0 +1,54 @@
+<div class="w-full bg-white rounded-xl p-6 h-full z-20">
+  <div class="flex justify-center font-bold text-xl">
+    <h1>Añadir nueva película</h1>
+  </div>
+
+  <form [formGroup]="pelicula" (ngSubmit)="addPelicula()" enctype="multipart/form-data">
+    <div class="flex flex-col gap-8 md:grid md:grid-rows-8 md:grid-cols-2 md:mt-4 p-4 md:gap-x-4 md:gap-y-6">
+        <div class="row-span-4 self-center justify-self-center">
+          <p class="text-center p-2 font-bold">Previsualización de la caratula</p>
+          <div [ngClass]="{ preview : mostrar == false}">
+            <div class="" *ngIf="imgURL && imgURL !== ''">
+              <img  class="h-80 w-64" [src]="imgURL" alt="preview">
+            </div>
+          </div>
+        </div>
+        <label class="block">
+          <span>Caratula de la Película</span>
+          <input type="file" accept="image/*" class="w-full mt-4 text-sm focus:border-none valid:border-none text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" (change)="showPreview($event)"/>
+        </label>
+        <div class="input-group">
+          <input required="true" type="text" id="titulo" class="input" formControlName="titulo">
+          <label class="user-label" for="titulo">Titulo</label>
+        </div>
+        <div class="input-group">
+          <input required="true" type="text" id="director" class="input" formControlName="director">
+          <label class="user-label" for="director">Director</label>
+        </div>
+      <div class="input-group">
+        <input required="true" type="text" id="username" class="input" formControlName="genero">
+        <label class="user-label">Genero</label>
+      </div>
+      <div class="col-span-2 md:mt-8">
+        <label for="descripcion" class="block mb-2 text-sm font-medium">Descripción de la película</label>
+        <textarea formControlName="descripcion" id="descripcion" rows="2" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="">
+        </textarea>
+      </div>
+      <div class="col-span-2 md:mt-8">
+        <label for="reparto" class="block mb-2 text-sm font-medium">Reparto de la película</label>
+        <textarea formControlName="reparto" id="reparto" rows="2" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="">
+        </textarea>
+      </div>
+      <div class="input-group mt-4">
+        <input required="true" type="number" id="duracion" class="input" formControlName="duracion">
+        <label class="user-label" for="duracion">Duración (Min)</label>
+      </div>
+    </div>
+  <div class="flex justify-center mt-4">
+    <button type="submit" class="px-6 py-4 bg-blue-700 text-white font-bold rounded-xl">Crear Pelicula</button>
+  </div>
+  </form>
+</div>
+<ng-container>
+  <p-toast></p-toast>
+</ng-container>

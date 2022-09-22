@@ -21,6 +21,7 @@ const routes: Routes = [
         canActivate: [AuthGuard],
       },
       { path: 'peliculas', loadChildren: () => import('./Cinema/peliculas/peliculas.module').then(m => m.PeliculasModule) },
+      { path: 'nueva-pelicula', loadChildren: () => import('./Cinema/nueva-pelicula/nueva-pelicula.module').then(m => m.NuevaPeliculaModule) },
     ],
 
   },
