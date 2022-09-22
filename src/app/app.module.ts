@@ -29,6 +29,7 @@ import {ApiService} from "./providers/api.service";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {SidebarService} from "./providers/sidebar.service";
+import {MessageService} from "primeng/api";
 
 @NgModule({
   declarations: [
@@ -53,22 +54,24 @@ import {SidebarService} from "./providers/sidebar.service";
     ComboSvgComponent,
     VentaSnacksSvgComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    TableModule,
-    ButtonModule,
-    RippleModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        TableModule,
+        ButtonModule,
+        RippleModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+    ],
   providers: [
     ApiService,
-    SidebarService
+    SidebarService,
+    MessageService
   ],
   bootstrap: [AppComponent],
+  exports: []
 })
 export class AppModule {
 }
