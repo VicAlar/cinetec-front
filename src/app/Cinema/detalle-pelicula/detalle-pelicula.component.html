@@ -1,0 +1,19 @@
+<ng-container *ngIf="pelicula !== undefined && pelicula.length != 0">
+  <div class="movie_card">
+    <div class="info_section">
+      <div class="movie_header">
+        <img class="poster" src="{{pelicula.imagen}}" alt="Poster Película"/>
+        <h1>{{pelicula.titulo}}</h1>
+        <h4>{{pelicula.year}}, {{pelicula.director}}</h4>
+        <span class="minutes">{{pelicula.duracion}} Minutos</span>
+        <p class="type">{{pelicula.genero}}</p>
+      </div>
+      <div class="movie_desc">
+        <p class="text">
+          {{pelicula.descripcion}}
+        </p>
+      </div>
+    </div>
+    <div class="blur_back" [style.backgroundImage]="'url(' + pelicula.imagen + ')'"></div>
+  </div>
+</ng-container>

@@ -13,10 +13,7 @@ export class PeliculasComponent implements OnInit {
   constructor(private api: ApiService) { }
 
   ngOnInit(): void {
-    const token = localStorage.getItem('token')
-    this.api.crearHeaders(token)
     this.api.get('pelicula').subscribe((data: any) => {
-      console.log(data)
       this.peliculas = data
     })
   }

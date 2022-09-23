@@ -15,6 +15,7 @@ export class ApiService {
   headerToken:any;
   tokenOptions:any;
   isAuthenticated: boolean = false;
+  loading:boolean = false
 
   constructor(private http:HttpClient) { }
 
@@ -30,12 +31,14 @@ export class ApiService {
 
   // @ts-ignore
   get(endpoint:string):Observable<any[]> {
+    if (this.tokenOptions == undefined) {
+      this.crearHeaders(localStorage.getItem('token'))
+    }
     let url = `${this.baseUrl}/${endpoint}/`
     return this.http.get(url, this.tokenOptions).pipe(catchError(this.handleError<any>()))
   }
 
   add(endpoint:string, data:any) {
-    console.log(data)
     let url = `${this.baseUrl}/${endpoint}/`
     let token = new HttpHeaders().set('Authorization', `Token ${localStorage.getItem('token')}`)
     let options = {headers:token}
