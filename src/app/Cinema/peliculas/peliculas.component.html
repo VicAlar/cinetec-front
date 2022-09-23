@@ -15,7 +15,7 @@
   </div>
 
   <div class="justify-center items-center flex flex-wrap gap-6 mt-8">
-    <div class="w-60 relative z-10 h-80 group transition-all rounded-xl" *ngFor="let pelicula of peliculas">
+    <a class="w-60 relative z-10 h-80 group transition-all rounded-xl" *ngFor="let pelicula of peliculas" [routerLink]="['/pelicula', pelicula.id]">
       <div class="h-full hover:brightness-50 transition-all">
         <img class="rounded-xl h-full w-60" [src]="pelicula.imagen" />
       </div>
@@ -25,7 +25,7 @@
       <div class="text-transparent absolute top-2 left-4 text-center p-4 font-bold group-hover:text-white">
         <h3>{{pelicula.titulo}}</h3>
       </div>
-    </div>
+    </a>
   </div>
 </div>
 
