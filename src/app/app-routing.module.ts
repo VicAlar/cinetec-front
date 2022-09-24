@@ -23,6 +23,8 @@ const routes: Routes = [
       { path: 'peliculas', loadChildren: () => import('./Cinema/peliculas/peliculas.module').then(m => m.PeliculasModule) },
       { path: 'nueva-pelicula', loadChildren: () => import('./Cinema/nueva-pelicula/nueva-pelicula.module').then(m => m.NuevaPeliculaModule) },
       { path: 'pelicula/:id', loadChildren: () => import('./Cinema/detalle-pelicula/detalle-pelicula.module').then(m => m.DetallePeliculaModule) },
+      { path: 'boletas', loadChildren: () => import('./Cinema/boletas/boletas.module').then(m => m.BoletasModule) },
+      { path: 'nueva-boleta', loadChildren: () => import('./Cinema/nueva-boleta/nueva-boleta.module').then(m => m.NuevaBoletaModule) },
     ],
 
   },

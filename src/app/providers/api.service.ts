@@ -46,6 +46,14 @@ export class ApiService {
     return this.http.post<any>(url, data, options).pipe(catchError(this.handleError<any>()))
   }
 
+  addBoleta(endpoint:string, data:any) {
+    let url = `${this.baseUrl}/${endpoint}/`
+    let token = new HttpHeaders().set('Authorization', `Token ${localStorage.getItem('token')}`)
+    let options = {headers:token}
+
+    return this.http.post<any>(url, data, options).pipe(catchError(this.handleError<any>()))
+  }
+
   crearHeaders(token:any) {
     this.headerToken = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', `Token ${token}`)
     this.tokenOptions = {headers:this.headerToken}
