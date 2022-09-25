@@ -1,0 +1,61 @@
+<link rel="stylesheet"
+      href=
+        "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="font-bold text-3xl text-center p-4 uppercase mt-4 text-black" style=margin:20px>
+  <h1>Combos Disponibles</h1>
+  <div class="font-bold text-right uppercase text-black">
+    <a routerLink="/combo-nuevo">
+        <p-button label="Crear" ></p-button>
+    </a>
+  </div>
+</div>
+
+<p-table [value]="combos" dataKey="id" responsiveLayout="scroll">
+
+<!-- Main table -->
+  <ng-template pTemplate="header">
+    <tr>
+      <th style="width: 3rem"></th>
+      <th pSortableColumn="nombre">Nombre <p-sortIcon field="nombre"></p-sortIcon></th>
+      <th pSortableColumn="precioTotal">Precio</th>
+      <th pSortableColumn="descuento">Descuento Aplicado</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-combo let-expanded="expanded">
+    <tr>
+      <td>
+        <button type="button" pButton pRipple [pRowToggler]="combo" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+      </td>
+       <td>{{combo.nombre}}</td>
+       <td>{{combo.precioTotal}}</td>
+       <td>{{combo.descuento}}</td>
+    </tr>
+  </ng-template>
+
+<!-- Expanded Table -->
+  <ng-template pTemplate="rowexpansion" let-combo>
+    <tr>
+      <td colspan="3">
+        <div>
+          <p-table [value]="combo.producto" dataKey="id">
+
+            <ng-template pTemplate="header">
+              <tr>
+                <th pSortableColumn="producto">Producto</th>
+                <th pSortableColumn="precio">Precio</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-prod>
+              <tr>
+                <td>{{prod.nombre}}</td>
+                <td>{{prod.precio}}</td>
+              </tr>
+            </ng-template>
+
+          </p-table>
+        </div>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

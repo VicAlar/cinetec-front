@@ -9,7 +9,6 @@ import {TableModule} from 'primeng/table';
 import {ButtonModule} from 'primeng/button';
 import {SalaComponent} from './sala/sala.component';
 import {RegistropedidosComponent} from './registropedidos/registropedidos.component';
-import {RegistrocombosComponent} from './registrocombos/registrocombos.component';
 import {RippleModule} from 'primeng/ripple';
 import {RegistroComponent} from './registro/registro.component';
 import {HeaderComponent} from './components/header/header.component';
@@ -26,10 +25,12 @@ import {InventarioSvgComponent} from '../assets/svg/inventario/inventario.compon
 import {ComboSvgComponent} from '../assets/svg/combos/combo.component';
 import {VentaSnacksSvgComponent} from '../assets/svg/ventaSnacks/ventaSnacks.component';
 import {ApiService} from "./providers/api.service";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {SidebarService} from "./providers/sidebar.service";
 import {MessageService} from "primeng/api";
+import {ToastModule} from "primeng/toast";
+
 
 @NgModule({
   declarations: [
@@ -38,7 +39,6 @@ import {MessageService} from "primeng/api";
     InventarioComponent,
     SalaComponent,
     RegistropedidosComponent,
-    RegistrocombosComponent,
     RegistroComponent,
     HeaderComponent,
     LayoutComponent,
@@ -61,9 +61,9 @@ import {MessageService} from "primeng/api";
         TableModule,
         ButtonModule,
         RippleModule,
-        FormsModule,
         ReactiveFormsModule,
         HttpClientModule,
+        ToastModule
     ],
   providers: [
     ApiService,

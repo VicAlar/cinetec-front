@@ -1,0 +1,32 @@
+<div class="w-full bg-white rounded-xl p-6 h-full z-20">
+  <div class="flex justify-center font-bold text-xl">
+    <h1>Añadir Nuevo Combo</h1>
+  </div>
+
+  <form [formGroup]="combo" (ngSubmit)="addCombo()">
+    <div class="flex flex-col gap-8 md:grid md:grid-rows-8 md:grid-cols-2 md:mt-4 p-4 md:gap-x-4 md:gap-y-6">
+      <div class="input-group">
+        <input required="true" type="text" id="nombre" class="input" formControlName="nombre">
+        <label class="user-label" for="nombre">Nombre del Combo</label>
+      </div>
+      <div class="input-group">
+        <input required="true" type="number" id="descuento" class="input" formControlName="descuento">
+        <label class="user-label" for="descuento">Descuento a Aplicar [%]</label>
+      </div>
+    </div>
+    <p-pickList [source]="lista1" [target]="lista2"  sourceHeader="Productos Disponibles" targetHeader="Seleccionados" [dragdrop]="true"
+                [responsive]="true" [sourceStyle]="{'height':'20rem'}" [targetStyle]="{'height':'20rem'}" filterBy="nombre"
+                sourceFilterPlaceholder="Buscar por nombre" targetFilterPlaceholder="Buscar por nombre">
+      <ng-template let-producto pTemplate="item">
+        <div>
+          <div style="font-size:14px;float:left;margin:0px 0px 0 0">{{producto.nombre}}</div>
+        </div>
+      </ng-template>
+    </p-pickList>
+
+    <div class="flex justify-center mt-4">
+      <button type="submit" class="px-6 py-4 bg-blue-700 text-white font-bold rounded-xl">Crear Combo</button>
+    </div>
+  </form>
+</div>
+

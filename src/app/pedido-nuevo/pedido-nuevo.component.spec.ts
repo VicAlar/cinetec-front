@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RegistrocombosComponent } from './registrocombos.component';
+import { PedidoNuevoComponent } from './pedido-nuevo.component';
 
-describe('RegistrocombosComponent', () => {
-  let component: RegistrocombosComponent;
-  let fixture: ComponentFixture<RegistrocombosComponent>;
+describe('PedidoNuevoComponent', () => {
+  let component: PedidoNuevoComponent;
+  let fixture: ComponentFixture<PedidoNuevoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RegistrocombosComponent ]
+      declarations: [ PedidoNuevoComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(RegistrocombosComponent);
+    fixture = TestBed.createComponent(PedidoNuevoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
