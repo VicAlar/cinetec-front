@@ -12,8 +12,44 @@
         <p class="text">
           {{pelicula.descripcion}}
         </p>
+        <div class="mt-4 flex flex-wrap gap-4">
+          <span class="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-1 rounded dark:bg-blue-200 dark:text-blue-800" *ngFor="let funcion of funciones">{{funcion.sala.nombre}} - {{funcion.horaEntrada}}</span>
+          <button class="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-1 rounded dark:bg-blue-200 dark:text-blue-800 flex items-center" (click)="openNew()">
+            <i class="pi pi-plus" style="font-size: .8rem"></i>
+            <span class="ml-2">Añadir</span>
+          </button>
+        </div>
       </div>
     </div>
     <div class="blur_back" [style.backgroundImage]="'url(' + pelicula.imagen + ')'"></div>
   </div>
 </ng-container>
+
+<p-dialog [(visible)]="modal" [breakpoints]="{'960px': '75vw', '640px': '75vw'}" [style]="{width: '50vw', height: '100%'}" header="Crear Nueva Funcion" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content" class="h-full">
+      <form [formGroup]="funcion">
+          <div class="block">
+            <label>Sala</label>
+            <p-dropdown [options]="salas" formControlName="idSala" optionLabel="nombre" optionValue="id" styleClass="w-full"></p-dropdown>
+          </div>
+          <div class="field">
+            <label for="fecha">Fecha</label>
+            <p-calendar id="fecha" formControlName="fecha" dateFormat="yy-mm-dd" panelStyleClass="w-auto"></p-calendar>
+          </div>
+          <div class="field mt-2">
+            <label for="horaEntrada">Hora Entrada</label>
+            <p-calendar id="horaEntrada" formControlName="horaEntrada" [timeOnly]="true" [showSeconds]="true" [showTime]="true" hourFormat="24"></p-calendar>
+          </div>
+          <div class="field mt-2">
+            <label for="horaSalida">Hora Salida</label>
+            <p-calendar id="horaSalida" formControlName="horaSalida" [showTime]="true" [timeOnly]="true" [showSeconds]="true" hourFormat="24"></p-calendar>
+          </div>
+      </form>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+      <button pButton pRipple label="Cancelar" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+      <button pButton pRipple label="Crear" icon="pi pi-check" class="p-button-text" (click)="crearFuncion()"></button>
+    </ng-template>
+</p-dialog>
+<p-toast></p-toast>
