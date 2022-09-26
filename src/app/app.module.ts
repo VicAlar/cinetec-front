@@ -29,7 +29,7 @@ import {ApiService} from "./providers/api.service";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {SidebarService} from "./providers/sidebar.service";
-import {MessageService} from "primeng/api";
+import {ConfirmationService, MessageService} from "primeng/api";
 
 @NgModule({
   declarations: [
@@ -68,7 +68,8 @@ import {MessageService} from "primeng/api";
   providers: [
     ApiService,
     SidebarService,
-    MessageService
+    MessageService,
+    ConfirmationService
   ],
   bootstrap: [AppComponent],
   exports: []

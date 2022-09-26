@@ -26,7 +26,8 @@ const routes: Routes = [
       { path: 'snacks', loadChildren: () => import('./VentaSnacks/productos/productos.module').then(m => m.ProductosModule) },
       { path: 'producto/:id', loadChildren: () => import('./VentaSnacks/detalle-producto/detalle-producto.module').then(m => m.DetalleProductoModule) },
       { path: 'nuevo-producto', loadChildren: () => import('./VentaSnacks/nuevo-producto/nuevo-producto.module').then(m => m.NuevoProductoModule) },
-
+      { path: 'boletas', loadChildren: () => import('./Cinema/boletas/boletas.module').then(m => m.BoletasModule) },
+      { path: 'nueva-boleta', loadChildren: () => import('./Cinema/nueva-boleta/nueva-boleta.module').then(m => m.NuevaBoletaModule) },
     ],
 
   },

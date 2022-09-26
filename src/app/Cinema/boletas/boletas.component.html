@@ -1,0 +1,60 @@
+<div class="w-full bg-white rounded-xl p-6 h-full z-20">
+  <p-toast></p-toast>
+
+  <div class="card">
+    <p-toolbar styleClass="mb-4">
+      <ng-template pTemplate="left">
+        <a routerLink="/nueva-boleta">
+          <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2" ></button>
+        </a>
+      </ng-template>
+    </p-toolbar>
+
+    <p-table #dt [value]="boletas" [rows]="10" [paginator]="true" [globalFilterFields]="['nombre','ciudad','sala']" responsiveLayout="scroll"
+             [rowHover]="true" dataKey="id"
+             currentPageReportTemplate="Mostrando {first} de {last} los {totalRecords} registros" [showCurrentPageReport]="true">
+      <ng-template pTemplate="caption">
+        <div class="flex items-center justify-between">
+          <h5 class="m-0">Administrar Boletas</h5>
+          <span class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" (input)="dt.filterGlobal($event.target, 'contains')" placeholder="Buscar..." />
+                </span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="name">Nombre Cliente <p-sortIcon field="name"></p-sortIcon></th>
+          <th>Fecha Compra</th>
+          <th pSortableColumn="pelicula">Película <p-sortIcon field="pelicula"></p-sortIcon></th>
+          <th pSortableColumn="ciudad">Ciudad <p-sortIcon field="ciudad"></p-sortIcon></th>
+          <th pSortableColumn="entrada">Hora de Entrada<p-sortIcon field="entrada"></p-sortIcon></th>
+          <th pSortableColumn="salida">Hora de Salida<p-sortIcon field="salida"></p-sortIcon></th>
+          <th></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-boleta>
+        <tr>
+          <td><a [routerLink]="['/boleta', boleta.id]">{{boleta.nombreCliente}}</a></td>
+          <td>{{boleta.fechaCompra}}</td>
+          <td><img [src]="boleta.funcion.pelicula.imagen" [alt]="boleta.funcion.pelicula.titulo" width="100" class="shadow-4" /></td>
+          <td>{{boleta.funcion.sala.ciudad}}</td>
+          <td>{{boleta.funcion.horaEntrada}}</td>
+          <td>{{boleta.funcion.horaSalida}}</td>
+          <td>
+            <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="edit(boleta)"></button>
+            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="delete(boleta)"></button>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="summary">
+        <div class="flex align-items-center justify-content-between">
+          En total hay {{boletas ? boletas.length : 0 }} boletas.
+        </div>
+      </ng-template>
+    </p-table>
+  </div>
+
+  <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+
+</div>

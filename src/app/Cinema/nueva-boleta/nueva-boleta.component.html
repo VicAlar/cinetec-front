@@ -1,0 +1,54 @@
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+<div class="w-full bg-white rounded-xl p-6 h-full z-20">
+  <div class="flex justify-center font-bold text-xl">
+    <h1>Venta de Boleta</h1>
+  </div>
+
+  <div>
+
+  </div>
+
+  <form [formGroup]="boleta" (ngSubmit)="handleSubmit()">
+    <div class="flex flex-col justify-center items-center gap-8 mt-8">
+
+      <h2 class="font-bold text-xl text-azul-primary">Datos de la película y cliente</h2>
+
+      <div class="input-group">
+        <input required="true" type="text" id="nombre" class="input" formControlName="nombreCliente">
+        <label class="user-label" for="nombre">Nombre Cliente</label>
+      </div>
+
+      <div>
+        <p-dropdown [options]="peliculas" formControlName="idPelicula" optionLabel="titulo" optionValue="id" (onChange)="getFunciones()"></p-dropdown>
+      </div>
+      <p-selectButton [options]="funciones" formControlName="funcion" (onChange)="getAsientos()" styleClass="flex flex-wrap justify-center">
+        <ng-template let-funcion>
+          <p>{{funcion.fecha}} - {{parseTime(funcion.horaEntrada)}}</p>
+        </ng-template>
+      </p-selectButton>
+
+      <div class="text-center font-bold text-xl" *ngIf="funcionSeleccionada != undefined">
+        <h2>Selección de boletas</h2>
+        <span class="text-sm text-sky-700">Precio del asiento = $ 15.000,00</span>
+      </div>
+
+      <p-selectButton [options]="asientos" formControlName="idAsiento" optionValue="id" optionLabel="numero" optionDisabled="reservado" [multiple]="multiple" (onOptionClick)="setTotal()">
+        <ng-template let-asiento>
+          <div class="flex-col">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 8.467 8.467"><g transform="translate(390.5 -684.652) scale(.26458)"><path fill="#fb848a" fill-rule="evenodd" d="m -1470.153,2602.1633 c -0.5523,0 -1,0.4477 -1,1 v 7.5002 c 0,0.5523 0.4477,1 1,1 h 20.5 c 0.5523,0 1,-0.4477 1,-1 v -7.5002 c 0,-0.5523 -0.4477,-1 -1,-1 -6.8333,0 -13.6667,0 -20.5,0 z"/><path fill="#808096" fill-rule="evenodd" d="m -1466.903,2611.6635 v 0.5001 c 0,0.8284 0.6716,1.5 1.5,1.5 h 11 c 0.8284,0 1.5,-0.6716 1.5,-1.5 v -0.5001 z"/><path fill="#fb848a" fill-rule="evenodd" d="m -1466.7959,2607.6635 -0.8512,-15.3133 c -0.1072,-1.7271 1.2545,-3.1872 2.9724,-3.1872 h 9.5434 c 1.7179,0 3.0796,1.4601 2.9724,3.1872 l -0.7387,15.3133 z"/><path fill="none" stroke="#586597" stroke-linecap="round" stroke-linejoin="round" d="M-1466.7959 2607.6635l-.8512-15.3133c-.1072-1.7271 1.2545-3.1872 2.9724-3.1872h9.5434c1.7179 0 3.0796 1.4601 2.9724 3.1872l-.7387 15.3133M-1456.8979 2593.1682l1.4899 1.49M-1455.408 2593.1682l-1.4899 1.49M-1464.3979 2593.1682l1.4899 1.49M-1462.908 2593.1682l-1.4899 1.49M-1463.8979 2602.1684l1.4899 1.49M-1462.408 2602.1684l-1.4899 1.49M-1457.3979 2602.1684l1.4899 1.49M-1455.908 2602.1684l-1.4899 1.49M-1460.648 2597.6633l1.4899 1.49M-1459.1581 2597.6633l-1.4899 1.49"/><path fill="none" stroke="#586597" stroke-linejoin="round" d="m -1466.903,2611.6635 v 0.5001 c 0,0.8284 0.6716,1.5 1.5,1.5 h 11 c 0.8284,0 1.5,-0.6716 1.5,-1.5 v -0.5001"/><path fill="none" stroke="#586597" d="m -1468.153,2602.1633 h -2 c -0.5523,0 -1,0.4477 -1,1 v 7.5002 c 0,0.5523 0.4477,1 1,1 h 20.5 c 0.5523,0 1,-0.4477 1,-1 v -7.5002 c 0,-0.5523 -0.4477,-1 -1,-1 h -1.5"/><path fill="none" stroke="#586597" stroke-linecap="round" stroke-linejoin="round" d="M-1451.903 2607.6635h-16M-1463.8994 2618.1575l.9072-.9945h6.2784l.8051.9945"/><path fill="none" stroke="#586597" d="m -1459.903,2617.6636 v -4"/></g></svg>
+            <span>{{asiento.numero}}</span>
+          </div>
+        </ng-template>
+      </p-selectButton>
+      <div class="text-center font-bold text-xl" *ngIf="funcionSeleccionada != undefined">
+        <p>Total a Pagar: <span>{{parsePrice(total)}}</span></p>
+      </div>
+      <div class="flex justify-center mt-4" *ngIf="funcionSeleccionada != undefined">
+        <button type="submit" class="px-6 py-4 bg-blue-700 text-white font-bold rounded-xl" >Realizar Venta</button>
+      </div>
+    </div>
+  </form>
+  <ng-container>
+    <p-toast></p-toast>
+  </ng-container>
+</div>
