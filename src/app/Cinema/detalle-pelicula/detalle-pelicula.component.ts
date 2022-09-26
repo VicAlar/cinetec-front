@@ -3,7 +3,7 @@ import {ActivatedRoute} from "@angular/router";
 import {ApiService} from "../../providers/api.service";
 import {retry} from "rxjs";
 import {FormBuilder} from "@angular/forms";
-import {MessageService} from "primeng/api";
+import {ConfirmationService, MessageService} from "primeng/api";
 
 @Component({
   selector: 'app-detalle-pelicula',
@@ -27,7 +27,7 @@ export class DetallePeliculaComponent implements OnInit {
     fecha: ['']
   })
 
-  constructor(private route: ActivatedRoute, private api: ApiService, private fb: FormBuilder, private messageService: MessageService) { }
+  constructor(private route: ActivatedRoute, private api: ApiService, private fb: FormBuilder, private messageService: MessageService, private confirmationService: ConfirmationService) { }
 
   ngOnInit(): void {
     this.fun = this.route.params.subscribe(params => {
@@ -87,6 +87,22 @@ export class DetallePeliculaComponent implements OnInit {
         }
       })
 
+    }
+
+    delete(id: number) {
+      this.confirmationService.confirm({
+        message: '¿Seguro deseas eliminar esta función?',
+        accept: () => {
+         this.api.delete(`funcion/${id}`).subscribe(data => {
+            if (data === null) {
+              this.messageService.add({severity:'success', summary: 'Función Eliminada', detail: 'La función se ha eliminado con éxito'});
+              this.funciones = this.funciones.filter((val: any) => val.id != id);
+            } else {
+              this.messageService.add({severity:'error', summary: 'Error', detail: 'Hubo un error al eliminar la función'});
+            }
+         })
+        }
+      });
     }
 
   }

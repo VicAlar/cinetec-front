@@ -12,25 +12,27 @@ import {InputNumberModule} from "primeng/inputnumber";
 import {DropdownModule} from "primeng/dropdown";
 import {CalendarModule} from "primeng/calendar";
 import {ToastModule} from "primeng/toast";
+import {ConfirmDialogModule} from "primeng/confirmdialog";
 
 
 @NgModule({
   declarations: [
     DetallePeliculaComponent
   ],
-    imports: [
-        CommonModule,
-        DetallePeliculaRoutingModule,
-        DialogModule,
-        ButtonModule,
-        RippleModule,
-        InputTextModule,
-        FormsModule,
-        InputNumberModule,
-        DropdownModule,
-        ReactiveFormsModule,
-        CalendarModule,
-        ToastModule
-    ]
+  imports: [
+    CommonModule,
+    DetallePeliculaRoutingModule,
+    DialogModule,
+    ButtonModule,
+    RippleModule,
+    InputTextModule,
+    FormsModule,
+    InputNumberModule,
+    DropdownModule,
+    ReactiveFormsModule,
+    CalendarModule,
+    ToastModule,
+    ConfirmDialogModule
+  ]
 })
 export class DetallePeliculaModule { }
