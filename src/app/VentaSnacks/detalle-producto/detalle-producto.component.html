@@ -1,0 +1,15 @@
+<ng-container *ngIf="producto !== undefined && producto.length != 0">
+  <div class="movie_card">
+    <div class="info_section">
+      <div class="movie_header">
+        <img class="poster" src="{{producto.imagen}}" alt="Poster Película"/>
+        <h1>{{producto.nombre}}</h1>
+        <h4>Precio: ${{producto.precio}}</h4>
+      </div>
+      <div class="movie_desc">
+      </div>
+    </div>
+    <div class="blur_back"  style [style.backgroundImage]="'url(' + producto.imagen + ')'"></div>
+  </div>
+</ng-container>
+
