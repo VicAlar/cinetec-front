@@ -35,7 +35,7 @@
       </ng-template>
       <ng-template pTemplate="body" let-boleta>
         <tr>
-          <td>{{boleta.nombreCliente}}</td>
+          <td><a [routerLink]="['/boleta', boleta.id]">{{boleta.nombreCliente}}</a></td>
           <td>{{boleta.fechaCompra}}</td>
           <td><img [src]="boleta.funcion.pelicula.imagen" [alt]="boleta.funcion.pelicula.titulo" width="100" class="shadow-4" /></td>
           <td>{{boleta.funcion.sala.ciudad}}</td>
