@@ -9,6 +9,8 @@ import {TableModule} from "primeng/table";
 import {ButtonModule} from "primeng/button";
 import {CheckboxModule} from "primeng/checkbox";
 import {ToolbarModule} from "primeng/toolbar";
+import {RippleModule} from "primeng/ripple";
+import {ConfirmDialogModule} from "primeng/confirmdialog";
 
 
 @NgModule({
@@ -25,6 +27,8 @@ import {ToolbarModule} from "primeng/toolbar";
     CheckboxModule,
     FormsModule,
     ToolbarModule,
+    RippleModule,
+    ConfirmDialogModule,
   ]
 })
 export class PedidosModule { }

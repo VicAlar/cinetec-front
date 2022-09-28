@@ -39,7 +39,7 @@ export class SalasComponent implements OnInit {
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
         this.salas = this.salas.filter((val: { id: any; }) => val.id !== sala.id);
-        this.messageService.add({severity:'success', summary: 'Exitoso', detail: 'Boleta Eliminada', life: 3000});
+        this.messageService.add({severity:'success', summary: 'Exitoso', detail: 'Sala Eliminada', life: 3000});
       }
     });
   }

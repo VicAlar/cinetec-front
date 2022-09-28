@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../providers/api.service";
 import {FormBuilder} from "@angular/forms";
 import {Router} from "@angular/router";
@@ -42,7 +42,6 @@ export class ComboNuevoComponent implements OnInit {
       'Productos': arr,
       'precioTotal': this.valortotal,
     })
-    console.log(this.combo.get('nombre')?.value, this.combo.get('descuento')?.value, this.combo.get('Productos')?.value)
 
     this.api.addform('combo', this.combo.value).subscribe(
       (data: any) => {
@@ -61,14 +60,12 @@ export class ComboNuevoComponent implements OnInit {
   updateSumaTotal(producto:any) {
     // @ts-ignore
     this.valortotal += producto.items[0].precio * (1 - this.combo.get('descuento')?.value/100)
-    console.log(this.valortotal)
 //    console.log(producto.items[0].precio)
   }
 
   updateRestaTotal(producto:any) {
     // @ts-ignore
     this.valortotal -= producto.items[0].precio * (1 - this.combo.get('descuento')?.value/100)
-    console.log(this.valortotal)
 //    console.log(producto.items[0].precio)
   }
 }

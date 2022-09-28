@@ -66,6 +66,7 @@
           <th pSortableColumn="cantidad">Cantidad</th>
           <th pSortableColumn="preciouni">Precio Unit.</th>
           <th pSortableColumn="preciotot">Precio Total</th>
+          <th></th>
         </tr>
       </ng-template>
       <ng-template pTemplate="caption">
@@ -77,6 +78,7 @@
           <td>{{prod.cantidad}}</td>
           <td>{{prod.precio | currency: '$' : 'symbol':'1.0-0'}}</td>
           <td>{{prod.precio * prod.cantidad  | currency: '$' : 'symbol' : '1.0-0'}}</td>
+          <td>        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="delete(prod)"></button></td>
         </tr>
       </ng-template>
     </p-table>

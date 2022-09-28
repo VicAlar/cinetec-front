@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../providers/api.service";
 import {FormBuilder} from "@angular/forms";
 import {Router} from "@angular/router";
@@ -46,7 +46,6 @@ export class PedidoNuevoComponent implements OnInit {
     })
 // LLENAR TABLA PEDIDO
     this.listaprod.push({'nombre': producto.nombre, 'precio': producto.precio, 'cantidad': cantidad})
-    console.log(this.listaprod.cantidad)
 
   }
 
@@ -61,15 +60,12 @@ export class PedidoNuevoComponent implements OnInit {
 
 // LLENAR TABLA PEDIDO
     this.listaprod.push({'nombre': combo.nombre, 'precio': combo.precioTotal, 'cantidad': cantidad})
-    console.log()
-    console.log(this.pedido.value)
   }
 
   onSubmit() {
     this.pedido.patchValue({
       total: this.valortotal,
     })
-    console.log(this.pedido.value)
 
     this.api.addform('pedido', this.pedido.value).subscribe(
       (data: any) => {
@@ -83,6 +79,10 @@ export class PedidoNuevoComponent implements OnInit {
         }
       }
     )
+  }
+
+  delete(prod: any) {
+    this.listaprod = this.listaprod.filter((val: { id: any; }) => val.id !== prod.id);
   }
 }
 
