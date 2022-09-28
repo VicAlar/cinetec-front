@@ -1,0 +1,25 @@
+<div class="w-full bg-white rounded-xl p-6 h-full z-20">
+  <div class="flex justify-center font-bold text-xl">
+    <h1>Crear Nueva Sala de Cine</h1>
+  </div>
+
+  <form [formGroup]="sala" (ngSubmit)="onSubmit()" class="flex justify-center mt-8 gap-6 flex-col items-center">
+      <div class="input-group">
+        <input required="true" type="text" id="nombre" class="input" formControlName="nombre">
+        <label class="user-label" for="nombre">Nombre de la sala</label>
+      </div>
+      <div class="input-group">
+        <input required="true" type="text" id="ciudad" class="input" formControlName="ciudad">
+        <label class="user-label" for="ciudad">Ciudad</label>
+      </div>
+      <div class="input-group">
+        <input required="true" type="text" id="capacidad" class="input" formControlName="capacidad">
+        <label class="user-label" for="capacidad">Capacidad</label>
+      </div>
+      <button type="submit" class="px-6 py-4 bg-blue-700 text-white font-bold rounded-xl w-36" >Crear Sala
+      </button>
+  </form>
+</div>
+<ng-container>
+  <p-toast></p-toast>
+</ng-container>

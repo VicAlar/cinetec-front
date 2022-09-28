@@ -2,14 +2,12 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {LoginComponent} from './login/login.component';
 import {LayoutComponent} from './layout/layout.component';
-import {SalaComponent} from './sala/sala.component';
 import {InventarioComponent} from './inventario/inventario.component';
 import {RegistropedidosComponent} from './registropedidos/registropedidos.component';
 import {RegistroComponent} from './registro/registro.component';
 import {AuthGuard} from "./providers/auth.guard";
 
 const routes: Routes = [
-  {path: 'login', component: LoginComponent},
   {
     path: '',
 
@@ -33,13 +31,12 @@ const routes: Routes = [
       { path: 'nuevo-producto', loadChildren: () => import('./VentaSnacks/nuevo-producto/nuevo-producto.module').then(m => m.NuevoProductoModule) },
       { path: 'boletas', loadChildren: () => import('./Cinema/boletas/boletas.module').then(m => m.BoletasModule) },
       { path: 'nueva-boleta', loadChildren: () => import('./Cinema/nueva-boleta/nueva-boleta.module').then(m => m.NuevaBoletaModule) },
+      { path: 'salas', loadChildren: () => import('./Cinema/salas/salas.module').then(m => m.SalasModule) },
+      { path: 'nueva-sala', loadChildren: () => import('./Cinema/nueva-sala/nueva-sala.module').then(m => m.NuevaSalaModule) },
     ],
-
   },
-  {path: 'inventario', component: InventarioComponent},
-  {path: 'sala', component: SalaComponent},
-  {path: 'registropedidos', component: RegistropedidosComponent},
   {path: 'registro', component: RegistroComponent},
+  {path: 'login', component: LoginComponent},
   {path: '**', redirectTo: 'login'}
 ];
 

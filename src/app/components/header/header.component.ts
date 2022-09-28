@@ -8,13 +8,12 @@ import {SidebarService} from "../../providers/sidebar.service";
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
+
   usuario: any;
 
   constructor(private api: ApiService, public  sidebarService: SidebarService) {}
 
   ngOnInit(): void {
-    this.api.getUser().subscribe((data: any) => {
-      this.usuario = data
-    })
+    this.usuario = this.api.usuario
   }
 }
