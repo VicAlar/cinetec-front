@@ -75,8 +75,7 @@ export class DetallePeliculaComponent implements OnInit {
     formData.append('horaEntrada', this.funcion.get('horaEntrada')?.value.toLocaleTimeString('es-MX'))
     // @ts-ignore
     formData.append('horaSalida', this.funcion.get('horaSalida')?.value.toLocaleTimeString('es-MX'))
-
-    console.log(this.funcion.value)
+    
     this.api.add('funcion', formData).subscribe(data => {
         if (data != undefined) {
           this.messageService.add({severity:'success', summary: 'Función Creada', detail: 'La función se ha creado con éxito'});

@@ -31,8 +31,14 @@
                 (onMoveToSource)="updateRestaTotal($event)">
       >
       <ng-template let-producto pTemplate="item">
-        <div>
-          <div style="font-size:14px;float:left;margin:0px 0px 0 0">{{producto.nombre}}</div>
+        <div class="flex">
+          <div class="h-28 w-28">
+            <img [src]="producto.imagen" [alt]="producto.nombre" class="product-image" />
+          </div>
+          <div class="flex flex-col gap-4">
+            <div class="ml-4 font-bold text-azul-primary">{{producto.nombre}}</div>
+            <div class="ml-4 font-bold text-sky-700 text-sm">Precio: {{producto.precio | currency:'$' : 'symbol' : '1.0-0'}}</div>
+          </div>
         </div>
       </ng-template>
     </p-pickList>
@@ -43,4 +49,4 @@
     </div>
   </form>
 </div>
-
+<p-toast></p-toast>

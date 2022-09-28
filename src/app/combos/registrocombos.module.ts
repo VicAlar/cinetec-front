@@ -9,21 +9,25 @@ import {TableModule} from "primeng/table";
 import {ButtonModule} from "primeng/button";
 import {ToolbarModule} from "primeng/toolbar";
 import {StyleClassModule} from "primeng/styleclass";
+import {RippleModule} from "primeng/ripple";
+import {ConfirmDialogModule} from "primeng/confirmdialog";
 
 
 @NgModule({
   declarations: [
     RegistroCombosComponent
   ],
-    imports: [
-        CommonModule,
-        RegistroCombosRoutingModule,
-        ReactiveFormsModule,
-        ToastModule,
-        TableModule,
-        ButtonModule,
-        ToolbarModule,
-        StyleClassModule,
-    ]
+  imports: [
+    CommonModule,
+    RegistroCombosRoutingModule,
+    ReactiveFormsModule,
+    ToastModule,
+    TableModule,
+    ButtonModule,
+    ToolbarModule,
+    StyleClassModule,
+    RippleModule,
+    ConfirmDialogModule,
+  ]
 })
 export class RegistroCombosModule { }

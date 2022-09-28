@@ -25,7 +25,6 @@ import {ApiService} from "./providers/api.service";
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {SidebarService} from "./providers/sidebar.service";
-import {MessageService} from "primeng/api";
 import {ToastModule} from "primeng/toast";
 import {ConfirmationService, MessageService} from "primeng/api";
 

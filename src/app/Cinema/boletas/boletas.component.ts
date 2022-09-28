@@ -18,7 +18,6 @@ export class BoletasComponent implements OnInit {
   ngOnInit(): void {
     this.api.get('boleta').subscribe((data: any) => {
       this.boletas = data
-      console.log(this.boletas)
     })
   }
 
