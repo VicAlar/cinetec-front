@@ -7,19 +7,23 @@ import {ToastModule} from "primeng/toast";
 import {RegistroCombosComponent} from "./registrocombos.component";
 import {TableModule} from "primeng/table";
 import {ButtonModule} from "primeng/button";
+import {ToolbarModule} from "primeng/toolbar";
+import {StyleClassModule} from "primeng/styleclass";
 
 
 @NgModule({
   declarations: [
     RegistroCombosComponent
   ],
-  imports: [
-    CommonModule,
-    RegistroCombosRoutingModule,
-    ReactiveFormsModule,
-    ToastModule,
-    TableModule,
-    ButtonModule,
-  ]
+    imports: [
+        CommonModule,
+        RegistroCombosRoutingModule,
+        ReactiveFormsModule,
+        ToastModule,
+        TableModule,
+        ButtonModule,
+        ToolbarModule,
+        StyleClassModule,
+    ]
 })
 export class RegistroCombosModule { }

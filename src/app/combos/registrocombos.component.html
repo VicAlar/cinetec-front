@@ -1,25 +1,28 @@
-<link rel="stylesheet"
-      href=
-        "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 <div class="font-bold text-3xl text-center p-4 uppercase mt-4 text-black" style=margin:20px>
   <h1>Combos Disponibles</h1>
-  <div class="font-bold text-right uppercase text-black">
-    <a routerLink="/combo-nuevo">
-        <p-button label="Crear" ></p-button>
-    </a>
-  </div>
+</div>
+
+<div class="card">
+  <p-toolbar styleClass="mb-4">
+    <ng-template pTemplate="left">
+    </ng-template>
+    <ng-template pTemplate="right">
+      <a routerLink="/combo-nuevo">
+        <button pButton pRipple label="Crear" icon="pi pi-plus" class="p-button-success mr-2"></button>
+      </a>
+    </ng-template>
+  </p-toolbar>
 </div>
 
 <p-table [value]="combos" dataKey="id" responsiveLayout="scroll">
-
 <!-- Main table -->
   <ng-template pTemplate="header">
     <tr>
       <th style="width: 3rem"></th>
       <th pSortableColumn="nombre">Nombre <p-sortIcon field="nombre"></p-sortIcon></th>
-      <th pSortableColumn="precioTotal">Precio</th>
-      <th pSortableColumn="descuento">Descuento Aplicado</th>
+      <th pSortableColumn="precioTotal" class="text-center">Precio</th>
+      <th pSortableColumn="descuento" class="text-center">Descuento Aplicado</th>
+      <th></th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-combo let-expanded="expanded">
@@ -27,9 +30,13 @@
       <td>
         <button type="button" pButton pRipple [pRowToggler]="combo" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
       </td>
-       <td>{{combo.nombre}}</td>
-       <td>{{combo.precioTotal}}</td>
-       <td>{{combo.descuento}}</td>
+      <td>{{combo.nombre}}</td>
+      <td>{{combo.precioTotal | currency:'$' : 'symbol' : '1.0-0'}}</td>
+      <td>{{combo.descuento/100  | percent:''}}</td>
+      <td>
+<!--        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"></button> -->
+        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"></button>
+      </td>
     </tr>
   </ng-template>
 
@@ -38,18 +45,28 @@
     <tr>
       <td colspan="3">
         <div>
-          <p-table [value]="combo.producto" dataKey="id">
-
+          <p-table [value]="combo.producto" dataKey="id" styleClass="p-datatable-sm">
+            <ng-template pTemplate="caption">
+              Productos
+            </ng-template>
             <ng-template pTemplate="header">
-              <tr>
+<!--              <tr>
                 <th pSortableColumn="producto">Producto</th>
                 <th pSortableColumn="precio">Precio</th>
+                <th></th>
               </tr>
+-->
             </ng-template>
             <ng-template pTemplate="body" let-prod>
-              <tr>
+              <tr style="background-color: whitesmoke">
                 <td>{{prod.nombre}}</td>
-                <td>{{prod.precio}}</td>
+                <td>{{prod.precio  | currency:'$' : 'symbol' : '1.0-0'}}</td>
+                <td>
+<!--
+                  <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"></button>
+                  <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"></button>
+-->
+                </td>
               </tr>
             </ng-template>
 

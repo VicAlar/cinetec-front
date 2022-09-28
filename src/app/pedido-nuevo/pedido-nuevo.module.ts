@@ -3,7 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { PedidoNuevoRoutingModule } from './pedido-nuevo-routing.module';
 import { PedidoNuevoComponent } from './pedido-nuevo.component';
-
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {DropdownModule} from "primeng/dropdown";
+import {ToastModule} from "primeng/toast";
+import {OrderListModule} from "primeng/orderlist";
+import {TableModule} from "primeng/table";
 
 @NgModule({
   declarations: [
@@ -11,7 +15,14 @@ import { PedidoNuevoComponent } from './pedido-nuevo.component';
   ],
   imports: [
     CommonModule,
-    PedidoNuevoRoutingModule
+    PedidoNuevoRoutingModule,
+    ReactiveFormsModule,
+    DropdownModule,
+    FormsModule,
+    ToastModule,
+    OrderListModule,
+    TableModule,
+
   ]
 })
 export class PedidoNuevoModule { }

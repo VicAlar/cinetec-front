@@ -13,11 +13,14 @@ export class ComboNuevoComponent implements OnInit {
 
   lista1:any = [];
   lista2:any = [];
+  valortotal:number = 0;
+  nohabilitado = true;
 
   combo = this.fb.group({
     nombre: [''],
-    descuento:  null,
+    descuento:  [0],
     Productos: [null],
+    precioTotal: [0],
   })
   constructor(private api: ApiService, private fb: FormBuilder, private router: Router, private messageService: MessageService) { }
 
@@ -35,7 +38,10 @@ export class ComboNuevoComponent implements OnInit {
 
     // @ts-ignore
     const arr = this.lista2.map(({id}) => id);
-    this.combo.patchValue({'Productos': arr})
+    this.combo.patchValue({
+      'Productos': arr,
+      'precioTotal': this.valortotal,
+    })
     console.log(this.combo.get('nombre')?.value, this.combo.get('descuento')?.value, this.combo.get('Productos')?.value)
 
     this.api.addform('combo', this.combo.value).subscribe(
@@ -50,5 +56,19 @@ export class ComboNuevoComponent implements OnInit {
         }
       }
     )
+  }
+
+  updateSumaTotal(producto:any) {
+    // @ts-ignore
+    this.valortotal += producto.items[0].precio * (1 - this.combo.get('descuento')?.value/100)
+    console.log(this.valortotal)
+//    console.log(producto.items[0].precio)
+  }
+
+  updateRestaTotal(producto:any) {
+    // @ts-ignore
+    this.valortotal -= producto.items[0].precio * (1 - this.combo.get('descuento')?.value/100)
+    console.log(this.valortotal)
+//    console.log(producto.items[0].precio)
   }
 }

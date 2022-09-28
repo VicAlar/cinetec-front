@@ -26,8 +26,8 @@ const routes: Routes = [
       { path: 'pelicula/:id', loadChildren: () => import('./Cinema/detalle-pelicula/detalle-pelicula.module').then(m => m.DetallePeliculaModule) },
       { path: 'combos', loadChildren: () => import('./combos/registrocombos.module').then(m => m.RegistroCombosModule) },
       { path: 'combo-nuevo', loadChildren: () => import('./combo-nuevo/combo-nuevo.module').then(m => m.ComboNuevoModule) },
-//      { path: 'pedidos', loadChildren: () => import('./pedidos/pedidos.module').then(m => m.PedidosModule) },
-//      { path: 'pedido-nuevo', loadChildren: () => import('./pedido-nuevo/pedido-nuevo.module').then(m => m.PedidoNuevoModule) },
+      { path: 'pedidos', loadChildren: () => import('./pedidos/pedidos.module').then(m => m.PedidosModule) },
+      { path: 'pedido-nuevo', loadChildren: () => import('./pedido-nuevo/pedido-nuevo.module').then(m => m.PedidoNuevoModule) },
     ],
 
   },
