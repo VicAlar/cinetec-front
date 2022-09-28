@@ -1,0 +1,46 @@
+<div class="font-bold text-3xl text-center p-4 uppercase mt-4 text-black" style=margin:20px>
+  <h1>Añadir Nuevo Combo</h1>
+</div>
+
+
+<div class="w-full bg-white rounded-xl p-6 h-full z-20">
+  <form [formGroup]="combo" (ngSubmit)="addCombo()">
+    <div class="flex flex-col gap-8 md:grid md:grid-cols-10 md:mt-4 p-6 md:gap-x-4 md:gap-y-6">
+      <div class="input-group md:col-span-1 sm:col-span-1"></div>
+      <div class="input-group md:col-span-4 sm:col-span-4">
+        <input required="true" type="text" id="nombre" class="input" formControlName="nombre">
+        <label class="user-label" for="nombre">Nombre del Combo</label>
+      </div>
+      <div class="input-group md:col-span-2 sm:col-span-2">
+        <input required="true" type="number" id="descuento" class="input" formControlName="descuento">
+        <label class="user-label" for="descuento">Descuento [%]</label>
+      </div>
+      <div class="input-group md:col-span-3 sm:col-span-2">
+        <input type="text" readonly
+               id="valorTotal"
+               value="Total: {{valortotal | currency:'$' : 'symbol' : '1.0-0'}}"
+               class="input">
+        <label class="user-label" for="valorTotal"></label>
+      </div>
+    </div>
+    <div class="md:ml-32 md:mr-32">
+    <p-pickList [source]="lista1" [target]="lista2"  sourceHeader="Productos Disponibles" targetHeader="Seleccionados" [dragdrop]="true"
+                [responsive]="true" [sourceStyle]="{'height':'20rem'}" [targetStyle]="{'height':'20rem'}" filterBy="nombre"
+                sourceFilterPlaceholder="Buscar por nombre" targetFilterPlaceholder="Buscar por nombre"
+                (onMoveToTarget)="updateSumaTotal($event)"
+                (onMoveToSource)="updateRestaTotal($event)">
+      >
+      <ng-template let-producto pTemplate="item">
+        <div>
+          <div style="font-size:14px;float:left;margin:0px 0px 0 0">{{producto.nombre}}</div>
+        </div>
+      </ng-template>
+    </p-pickList>
+    </div>
+
+    <div class="flex justify-center mt-4">
+      <button type="submit" class="px-6 py-4 bg-blue-700 text-white font-bold rounded-xl">Crear Combo</button>
+    </div>
+  </form>
+</div>
+

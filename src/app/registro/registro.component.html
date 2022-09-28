@@ -1,13 +1,13 @@
-<div class="flex justify-center h-screen items-center mt-10 sm:mt-0">
-  <div class="w-2/4 bg-azul-primary p-4 rounded-xl h-3/4 drop-shadow-2xl">
+<div class="flex justify-center h-screen items-center mt-10 sm:mt-0 overflow-scroll-y: scroll">
+  <div class="w-2/4 bg-azul-primary p-4 rounded-xl h-auto drop-shadow-2xl">
     <div class="flex justify-center">
       <div class="w-20 h-20 mt-6">
         <svg fill="#FFF" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 60.7 28.7 32 64 32H448c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zM48 368v32c0 8.8 7.2 16 16 16H96c8.8 0 16-7.2 16-16V368c0-8.8-7.2-16-16-16H64c-8.8 0-16 7.2-16 16zm368-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V368c0-8.8-7.2-16-16-16H416zM48 240v32c0 8.8 7.2 16 16 16H96c8.8 0 16-7.2 16-16V240c0-8.8-7.2-16-16-16H64c-8.8 0-16 7.2-16 16zm368-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V240c0-8.8-7.2-16-16-16H416zM48 112v32c0 8.8 7.2 16 16 16H96c8.8 0 16-7.2 16-16V112c0-8.8-7.2-16-16-16H64c-8.8 0-16 7.2-16 16zM416 96c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V112c0-8.8-7.2-16-16-16H416zM160 128v64c0 17.7 14.3 32 32 32H320c17.7 0 32-14.3 32-32V128c0-17.7-14.3-32-32-32H192c-17.7 0-32 14.3-32 32zm32 160c-17.7 0-32 14.3-32 32v64c0 17.7 14.3 32 32 32H320c17.7 0 32-14.3 32-32V320c0-17.7-14.3-32-32-32H192z"/></svg>
       </div>
     </div>
     <h1 class="font-bold text-3xl text-center p-4 uppercase mt-4 text-white">Registro de Usuario</h1>
-    <div class="md:grid md:grid-cols-2 md:gap-6">
-      <div class="justify-center mt-4 md:col-span-2 md:mt-0">
+    <div class="flex justify-center items-center md:grid md:grid-cols-2 md:gap-6">
+      <div class="mt-4 md:col-span-2 md:mt-0">
         <form action="#" method="POST">
           <div class="overflow-hidden shadow sm:rounded-md">
             <div class="bg-blue-primary px-4 py-5 sm:p-6">
@@ -82,8 +82,9 @@
             </div>
           </div>
         </form>
-        <div class="mt-4 p-4 ml-80 bg-azul-secondary w-48 text-center rounded-xl font-bold">
-          <button>
+
+        <div class="text-center bg-azul-primary px-4 py-3 sm:px-6">
+          <button type="submit" class="mt-4 p-4 w-48 bg-azul-secondary rounded-xl font-bold text-center">
             Guardar
           </button>
         </div>
