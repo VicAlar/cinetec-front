@@ -1,1 +1,15 @@
-<p>dashboard works!</p>
+<div class="w-full bg-white rounded-xl p-6 h-full z-20">
+  <div class="flex justify-center font-bold text-xl mb-4">
+    <h1>Ultimas Películas</h1>
+  </div>
+  <p-carousel [value]="peliculas" [numVisible]="3" [numScroll]="1" [autoplayInterval]="3600" [circular]="true" [page]="1" [responsiveOptions]="responsiveOptions" contentClass="w-full">
+    <ng-template let-pelicula pTemplate="item">
+        <a class="w-60 z-10 h-80 rounded-xl" [routerLink]="['/pelicula', pelicula.id]">
+          <div class="h-full hover:brightness-50 transition-all">
+            <img class="rounded-xl h-80 w-60" [src]="pelicula.imagen" />
+          </div>
+        </a>
+    </ng-template>
+  </p-carousel>
+
+</div>

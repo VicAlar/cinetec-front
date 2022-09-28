@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {SidebarService} from "../../providers/sidebar.service";
 import {HomeSvgComponent} from "../../../assets/svg/home/home.component";
 import {MovieSvgComponent} from "../../../assets/svg/movie/movie.component";
-import {FuncionSvgComponent} from "../../../assets/svg/funcion/funcion.component";
 import {SalaSvgComponent} from "../../../assets/svg/salas/sala.component";
 import {BoletaSvgComponent} from "../../../assets/svg/boleta/boleta.component";
 import {InventarioSvgComponent} from "../../../assets/svg/inventario/inventario.component";
@@ -39,11 +38,6 @@ export class SidebarComponent implements OnInit {
             label: 'Películas',
             icon: MovieSvgComponent,
             routerLink: '/peliculas',
-          },
-          {
-            label: 'Funciones',
-            icon: FuncionSvgComponent,
-            routerLink: '/funciones',
           },
           {
             label: 'Salas',

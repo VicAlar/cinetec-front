@@ -1,0 +1,62 @@
+<link rel="stylesheet"
+      href=
+        "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="w-full bg-white rounded-xl p-6 h-full z-20">
+  <div class="font-bold text-3xl text-center p-4 uppercase mt-4 text-black" style=margin:20px>
+    <h1>Registro de salas</h1>
+  </div>
+
+    <p-toolbar styleClass="mb-4">
+      <ng-template pTemplate="left">
+        <a routerLink="/nueva-sala">
+          <div class="font-bold text-right uppercase text-black">
+            <p-button label="Crear" ></p-button>
+          </div>
+        </a>
+      </ng-template>
+    </p-toolbar>
+    <p-table [value]="salas" responsiveLayout="scroll">
+      <ng-template pTemplate="header">
+        <tr>
+          <th style="text-align: center">Nombre de la sala</th>
+          <th style="text-align: center">Ciudad</th>
+          <th style="text-align: center">Sillas totales</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-sala>
+        <tr>
+          <td style="text-align: center">{{sala.nombre}}</td>
+          <td style="text-align: center">{{sala.ciudad}}</td>
+          <td style="text-align: center">{{sala.capacidad}}</td>
+          <td><button pButton pRipple type="button" icon="fa fa-pencil-square-o" class="p-button-rounded p-button-outlined" (click)="edit(sala)"></button></td>
+          <td><button pButton pRipple type="button" icon="fa fa-times" class="p-button-rounded p-button-danger p-button-outlined" (click)="delete(sala)"></button></td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+
+<p-dialog [(visible)]="modal" [style]="{width: '450px'}" header="Product Details" [modal]="true" styleClass="p-fluid">
+  <ng-template pTemplate="content">
+    <div class="field">
+      <label for="nombre">Nombre</label>
+      <input type="text" pInputText id="nombre" [(ngModel)]="sala.nombre" required autofocus />
+      <small class="p-error" *ngIf="submitted && !sala.nombre">Name is required.</small>
+    </div>
+
+    <div class="field">
+      <label for="ciudad">Nombre</label>
+      <input type="text" pInputText id="ciudad" [(ngModel)]="sala.ciudad" required autofocus />
+      <small class="p-error" *ngIf="submitted && !sala.ciudad">Name is required.</small>
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="footer">
+    <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+    <button pButton pRipple label="Guardar Cambios" icon="pi pi-check" class="p-button-text" (click)="editarSala()"></button>
+  </ng-template>
+</p-dialog>
+
+<p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+<p-toast></p-toast>

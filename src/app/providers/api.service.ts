@@ -54,6 +54,14 @@ export class ApiService {
     return this.http.post<any>(url, data, options).pipe(catchError(this.handleError<any>()))
   }
 
+  put(endpoint:string, data:any) {
+    let url = `${this.baseUrl}/${endpoint}/`
+    let token = new HttpHeaders().set('Authorization', `Token ${localStorage.getItem('token')}`)
+    let options = {headers:token}
+
+    return this.http.put<any>(url, data, options).pipe(catchError(this.handleError<any>()))
+  }
+
   delete(endpoint:string) {
     let url =`${this.baseUrl}/${endpoint}/`
     let header = new HttpHeaders().set('Authorization', `Token ${localStorage.getItem('token')}`)
@@ -81,7 +89,4 @@ export class ApiService {
     }
   }
 
-  getUser() {
-    return this.usuario
-  }
 }

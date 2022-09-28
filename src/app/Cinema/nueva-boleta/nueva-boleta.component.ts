@@ -23,7 +23,7 @@ export class NuevaBoletaComponent implements OnInit {
   boleta = this.fb.group({
     idPelicula: [''],
     funcion: [{}],
-    idFuncion: [''],
+    idFuncion: ['' || []],
     nombreCliente: [''],
     fechaCompra: [''],
     idAsiento: [''],
