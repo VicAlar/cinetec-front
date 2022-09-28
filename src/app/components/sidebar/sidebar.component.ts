@@ -67,7 +67,7 @@ export class SidebarComponent implements OnInit {
           {
             label: 'Venta de snacks',
             icon: VentaSnacksSvgComponent,
-            routerLink: '/ventaSnacks',
+            routerLink: '/pedidos',
           },
         ],
       },

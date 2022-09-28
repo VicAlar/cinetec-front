@@ -22,10 +22,13 @@ import {InventarioSvgComponent} from '../assets/svg/inventario/inventario.compon
 import {ComboSvgComponent} from '../assets/svg/combos/combo.component';
 import {VentaSnacksSvgComponent} from '../assets/svg/ventaSnacks/ventaSnacks.component';
 import {ApiService} from "./providers/api.service";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {SidebarService} from "./providers/sidebar.service";
+import {MessageService} from "primeng/api";
+import {ToastModule} from "primeng/toast";
 import {ConfirmationService, MessageService} from "primeng/api";
+
 
 @NgModule({
   declarations: [
@@ -53,9 +56,9 @@ import {ConfirmationService, MessageService} from "primeng/api";
         TableModule,
         ButtonModule,
         RippleModule,
-        FormsModule,
         ReactiveFormsModule,
         HttpClientModule,
+        ToastModule
     ],
   providers: [
     ApiService,
